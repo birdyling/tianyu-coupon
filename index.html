@@ -1,41 +1,82 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>天羽燕窩見面禮</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>天羽燕窩-新友禮遇</title>
     <style>
-        body { font-family: sans-serif; text-align: center; padding: 20px; background-color: #fcfcfc; color: #333; }
-        .coupon-card { border: 2px dashed #b11f24; border-radius: 15px; padding: 20px; background: #fff; margin-top: 20px; }
-        .code-box { font-size: 24px; font-weight: bold; color: #b11f24; background: #f8f8f8; padding: 10px; border-radius: 5px; margin: 15px 0; display: inline-block; width: 80%; }
-        .btn-copy { background: #b11f24; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; }
-        .btn-use { background: #d4af37; color: white; border: none; padding: 15px 40px; border-radius: 30px; font-size: 18px; text-decoration: none; display: inline-block; margin-top: 30px; }
-        .rules { font-size: 13px; color: #666; text-align: left; line-height: 1.6; margin-top: 20px; }
+        /* 1. 整體背景顏色 */
+        body { font-family: 'PingFang TC', 'Heiti TC', sans-serif; background-color: #fef7ef; margin: 0; padding: 20px; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+        
+        /* 2. 精品卡片主體 (參考附圖設計) */
+        .coupon-card { background: #fff; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); overflow: hidden; width: 100%; max-width: 350px; text-align: center; border: 1px solid rgba(177, 31, 36, 0.1); }
+        
+        /* 3. 卡片上方圖片區塊 (金紅配色) */
+        .card-header { background: linear-gradient(135deg, #b11f24 0%, #d4af37 100%); padding: 30px 20px; color: white; }
+        .card-header h1 { margin: 0; font-size: 28px; font-weight: bold; }
+        .card-header p { margin: 5px 0 0; font-size: 14px; opacity: 0.9; }
+
+        /* 4. 卡片內容區塊 */
+        .card-body { padding: 30px 25px; }
+        .promo-title { color: #b11f24; font-size: 18px; font-weight: bold; margin-bottom: 20px; }
+
+        /* 5. 序號與複製按鈕 (參考附圖樣式) */
+        .coupon-code-row { display: flex; align-items: center; background: #f8f8f8; border: 1px solid #eee; border-radius: 8px; padding: 10px; margin-bottom: 25px; }
+        .code-text { flex-grow: 1; font-size: 20px; font-weight: bold; color: #333; letter-spacing: 1px; text-align: left; padding-left: 10px; }
+        .btn-copy { background: #b11f24; color: white; border: none; padding: 8px 15px; border-radius: 6px; font-size: 12px; cursor: pointer; transition: background 0.3s; }
+        .btn-copy:active { background: #8e181c; }
+
+        /* 6. 使用規則 (參考附圖縮小) */
+        .rules { text-align: left; font-size: 12px; color: #666; line-height: 1.8; margin-bottom: 30px; border-top: 1px solid #eee; padding-top: 15px; }
+        .rules strong { color: #333; display: block; margin-bottom: 5px; }
+
+        /* 7. 立即前往按鈕 (金屬感配色) */
+        .btn-use { background: linear-gradient(180deg, #e6c86e 0%, #d4af37 100%); color: white; border: none; padding: 15px; border-radius: 30px; font-size: 16px; font-weight: bold; text-decoration: none; display: block; width: 100%; box-shadow: 0 4px 10px rgba(212, 175, 55, 0.3); transition: transform 0.2s; }
+        .btn-use:active { transform: scale(0.98); }
+
+        /* 複製成功提示 (簡約版) */
+        .copy-toast { visibility: hidden; min-width: 200px; background-color: rgba(51, 51, 51, 0.9); color: #fff; text-align: center; border-radius: 10px; padding: 10px; position: fixed; z-index: 1; bottom: 30px; left: 50%; transform: translateX(-50%); font-size: 14px; }
+        .copy-toast.show { visibility: visible; animation: fadein 0.5s, fadeout 0.5s 2.5s; }
+        @keyframes fadein { from {bottom: 0; opacity: 0;} to {bottom: 30px; opacity: 1;} }
+        @keyframes fadeout { from {bottom: 30px; opacity: 1;} to {bottom: 0; opacity: 0;} }
     </style>
 </head>
 <body>
-    <h2>您的專屬 $300 購物金</h2>
+
     <div class="coupon-card">
-        <div class="code-box" id="couponCode">LINEFRIENDS300</div>
-        <button class="btn-copy" onclick="copyCode()">點我複製</button>
-        
-        <div class="rules">
-            <strong>使用規則：</strong><br>
-            1. 全館不限品項，滿 $3,000 即可折抵。<br>
-            2. 優惠碼一個會員帳號限使用一次。<br>
-            3. 優惠碼於結帳時輸入使用，若未成功使用，恕無法交易完成後進行折抵。<br>
-            4. 限官網使用，造成不便請見諒。<br>
-            5. 優惠碼數量有限，換完為止。<br>
+        <div class="card-header">
+            <h1>$300</h1>
+            <p>專屬換新禮金</p>
+        </div>
+
+        <div class="card-body">
+            <div class="promo-title">新友禮遇・立即領取</div>
+
+            <div class="coupon-code-row">
+                <div class="code-text" id="couponCode">TIANYU300</div>
+                <button class="btn-copy" onclick="copyCode()">複製序號</button>
+            </div>
+            
+            <div class="rules">
+                <strong>【 使用規則 】</strong>
+                • 全館滿 $3,000 即可折抵。<br>
+                • 限新會員首購使用。<br>
+                • 期限：領取後 30 天內有效。
+            </div>
+
+            <a href="https://www.tianyuyianwo.com" class="btn-use">立即前往官網使用</a>
         </div>
     </div>
 
-    <a href="https://www.tianyuyianwo.com" class="btn-use">立即前往官網使用</a>
+    <div class="copy-toast" id="toast">序號已複製成功！</div>
 
     <script>
         function copyCode() {
             var code = document.getElementById('couponCode').innerText;
             navigator.clipboard.writeText(code).then(function() {
-                alert('序號已複製成功！');
+                var toast = document.getElementById("toast");
+                toast.className = "copy-toast show";
+                setTimeout(function(){ toast.className = toast.className.replace("show", ""); }, 3000);
             });
         }
     </script>
