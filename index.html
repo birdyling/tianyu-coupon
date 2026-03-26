@@ -26,9 +26,30 @@
         .btn-copy { background: #b11f24; color: white; border: none; padding: 8px 15px; border-radius: 6px; font-size: 12px; cursor: pointer; transition: background 0.3s; }
         .btn-copy:active { background: #8e181c; }
 
-/* 6. 使用規則 (參考附圖縮小) */
-        .rules { text-align: left; font-size: 12px; color: #666; line-height: 1.8; margin-bottom: 30px; border-top: 1px solid #eee; padding-top: 15px; }
-        .rules strong { color: #333; display: block; margin-bottom: 5px; }
+/* 6. 使用規則 (修正對齊與並排) */
+        .rules { 
+            text-align: left; 
+            font-size: 13px; 
+            color: #666; 
+            line-height: 1.7; 
+            margin-bottom: 30px; 
+            border-top: 1px solid #eee; 
+            padding: 20px 10px 0 10px; 
+        }
+        .rules strong { 
+            color: #333; 
+            display: block; 
+            margin-bottom: 10px; 
+            font-size: 15px;
+        }
+        .rules ul { 
+            margin: 0; 
+            padding-left: 1.2em; /* 這裡控制點點與文字的間距 */
+            list-style-position: outside; /* 關鍵：確保換行時對齊文字而非點點 */
+        }
+        .rules li {
+            margin-bottom: 8px;
+        }
 
 /* 7. 立即前往按鈕 (修正對齊版) */
         .btn-use { 
@@ -72,12 +93,14 @@
             </div>
             
             <div class="rules">
-                <strong>【使用規則】</strong><br>
-                • 全館不限品項，滿 $3,000 即可折抵。<br>
-                • 優惠碼一個會員帳號限使用一次。<br>
-                • 優惠碼於結帳時輸入使用，若未成功使用，恕無法交易完成後進行折抵。<br>
-                • 限官網使用，造成不便請見諒。<br>
-                • 優惠碼數量有限，換完為止。<br>
+                <strong>【 使用規則 】</strong>
+                <ul>
+                    <li>全館不限品項，滿 $3,000 即可折抵。</li>
+                    <li>優惠碼一個會員帳號限使用一次。</li>
+                    <li>優惠碼於結帳時輸入使用，若未成功使用，恕無法交易完成後進行折抵。</li>
+                    <li>限官網使用，造成不便請見諒。</li>
+                    <li>優惠碼數量有限，換完為止。</li>
+                </ul>
             </div>
 
             <a href="https://www.tianyuyianwo.com" class="btn-use">立即前往官網使用</a>
