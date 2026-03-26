@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>天羽燕窩見面禮</title>
+    <style>
+        body { font-family: sans-serif; text-align: center; padding: 20px; background-color: #fcfcfc; color: #333; }
+        .coupon-card { border: 2px dashed #b11f24; border-radius: 15px; padding: 20px; background: #fff; margin-top: 20px; }
+        .code-box { font-size: 24px; font-weight: bold; color: #b11f24; background: #f8f8f8; padding: 10px; border-radius: 5px; margin: 15px 0; display: inline-block; width: 80%; }
+        .btn-copy { background: #b11f24; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; }
+        .btn-use { background: #d4af37; color: white; border: none; padding: 15px 40px; border-radius: 30px; font-size: 18px; text-decoration: none; display: inline-block; margin-top: 30px; }
+        .rules { font-size: 13px; color: #666; text-align: left; line-height: 1.6; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h2>您的專屬 $300 購物金</h2>
+    <div class="coupon-card">
+        <div class="code-box" id="couponCode">LINEFRIENDS300</div>
+        <button class="btn-copy" onclick="copyCode()">點我複製</button>
+        
+        <div class="rules">
+            <strong>使用規則：</strong><br>
+            1. 全館不限品項，滿 $3,000 即可折抵。<br>
+            2. 一個帳號限使用一次。<br>
+            3. 使用期限不限。
+        </div>
+    </div>
+
+    <a href="https://www.tianyuyianwo.com" class="btn-use">立即前往官網使用</a>
+
+    <script>
+        function copyCode() {
+            var code = document.getElementById('couponCode').innerText;
+            navigator.clipboard.writeText(code).then(function() {
+                alert('序號已複製成功！');
+            });
+        }
+    </script>
+</body>
+</html>
