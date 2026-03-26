@@ -26,13 +26,34 @@
         .btn-copy { background: #b11f24; color: white; border: none; padding: 8px 15px; border-radius: 6px; font-size: 12px; cursor: pointer; transition: background 0.3s; }
         .btn-copy:active { background: #8e181c; }
 
-        /* 6. 使用規則 (參考附圖縮小) */
-        .rules { text-align: left; font-size: 12px; color: #666; line-height: 1.8; margin-bottom: 30px; border-top: 1px solid #eee; padding-top: 15px; }
-        .rules strong { color: #333; display: block; margin-bottom: 5px; }
+/* 6. 使用規則 (修正邊距) */
+        .rules { 
+            text-align: left; 
+            font-size: 13px; 
+            color: #666; 
+            line-height: 1.8; 
+            margin-bottom: 30px; 
+            border-top: 1px solid #eee; 
+            padding: 20px 5px 0 5px; /* 增加頂部間距與左右微調 */
+        }
 
-        /* 7. 立即前往按鈕 (金屬感配色) */
-        .btn-use { background: linear-gradient(180deg, #e6c86e 0%, #d4af37 100%); color: white; border: none; padding: 15px; border-radius: 30px; font-size: 16px; font-weight: bold; text-decoration: none; display: block; width: 100%; box-shadow: 0 4px 10px rgba(212, 175, 55, 0.3); transition: transform 0.2s; }
-        .btn-use:active { transform: scale(0.98); }
+/* 7. 立即前往按鈕 (修正對齊版) */
+        .btn-use { 
+            background: linear-gradient(180deg, #e6c86e 0%, #d4af37 100%); 
+            color: white; 
+            border: none; 
+            padding: 15px; 
+            border-radius: 30px; 
+            font-size: 16px; 
+            font-weight: bold; 
+            text-decoration: none; 
+            display: block; 
+            width: 100%; 
+            box-sizing: border-box; /* 關鍵修正：確保寬度計算包含 padding */
+            box-shadow: 0 4px 10px rgba(212, 175, 55, 0.3); 
+            transition: transform 0.2s; 
+            margin: 0 auto; /* 確保自動置中 */
+        }
 
         /* 複製成功提示 (簡約版) */
         .copy-toast { visibility: hidden; min-width: 200px; background-color: rgba(51, 51, 51, 0.9); color: #fff; text-align: center; border-radius: 10px; padding: 10px; position: fixed; z-index: 1; bottom: 30px; left: 50%; transform: translateX(-50%); font-size: 14px; }
